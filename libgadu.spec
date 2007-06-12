@@ -47,7 +47,8 @@ Static development files for libgadu library.
 
 %build
 %configure2_5x \
-	--with-pthread
+	--with-pthread \
+	--without-bind
 
 %make
 
