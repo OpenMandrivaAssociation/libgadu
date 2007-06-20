@@ -6,7 +6,7 @@
 Summary:	A Gadu-gadu protocol compatibile library
 Name:		libgadu
 Version:	1.7.1
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	LGPL
 Group:		Networking/Instant messaging
 Url:		http://toxygen.net/libgadu
@@ -41,10 +41,10 @@ Development files for libgadu library.
 Summary:	Static development files for libgadu library
 Group:		Development/C
 Requires:	%{develname} = %{version}-%{release}
+Obsoletes:	%{libname}-static-devel
 
 %description -n %{staticname}
 Static development files for libgadu library.
-
 
 %prep
 %setup -q
