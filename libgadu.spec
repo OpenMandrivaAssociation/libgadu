@@ -1,13 +1,12 @@
 %define major 3
 %define libname %mklibname gadu %{major}
 %define develname %mklibname gadu -d
-%define staticname %mklibname gadu -d -s
 
 Summary:	A Gadu-gadu protocol compatibile library
 Name:		libgadu
 Version:	1.7.1
-Release:	%mkrel 5
-License:	LGPL
+Release:	%mkrel 6
+License:	LGPLv2+
 Group:		Networking/Instant messaging
 Url:		http://toxygen.net/libgadu
 Source0:	http://toxygen.net/libgadu/files/%{name}-%{version}.tar.bz2
@@ -32,25 +31,17 @@ Group:		Development/C
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	gadu-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
-Obsoletes:	%{libname}-devel
+Obsoletes:	%{libname}-static-devel
 
 %description -n %{develname}
 Development files for libgadu library.
-
-%package -n %{staticname}
-Summary:	Static development files for libgadu library
-Group:		Development/C
-Requires:	%{develname} = %{version}-%{release}
-Obsoletes:	%{libname}-static-devel
-
-%description -n %{staticname}
-Static development files for libgadu library.
 
 %prep
 %setup -q
 
 %build
 %configure2_5x \
+	--disable-static \
 	--with-pthread \
 	--without-bind \
 	--disable-debug
@@ -76,12 +67,7 @@ Static development files for libgadu library.
 
 %files -n %{develname}
 %defattr(-,root,root)
-%doc COPYING
 %{_includedir}/%{name}.h
 %{_libdir}/%{name}.so
 %{_libdir}/%{name}.la
 %{_libdir}/pkgconfig/%{name}.pc
-
-%files -n %{staticname}
-%defattr(-,root,root)
-%{_libdir}/%{name}.a
