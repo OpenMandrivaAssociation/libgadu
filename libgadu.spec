@@ -1,15 +1,16 @@
+%define prel svn513
 %define major 3
 %define libname %mklibname gadu %{major}
 %define develname %mklibname gadu -d
 
 Summary:	A Gadu-gadu protocol compatibile library
 Name:		libgadu
-Version:	1.7.1
-Release:	%mkrel 7
+Version:	1.7.90
+Release:	%mkrel 0.%{prel}.1
 License:	LGPLv2+
 Group:		Networking/Instant messaging
 Url:		http://toxygen.net/libgadu
-Source0:	http://toxygen.net/libgadu/files/%{name}-%{version}.tar.bz2
+Source0:	http://toxygen.net/libgadu/files/%{name}-%{version}-%{prel}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description 
@@ -36,15 +37,18 @@ Obsoletes:	%{libname}-static-devel
 Development files for libgadu library.
 
 %prep
-%setup -q
+%setup -qn %{name}-%{version}-%{prel}
 
 %build
+./autogen.sh
+
 %configure2_5x \
 	--disable-static \
 	--with-pthread \
 	--without-bind \
 	--disable-debug \
-	--without-openssl
+	--without-openssl \
+	--with-c99-vsnprintf
 
 %make
 
