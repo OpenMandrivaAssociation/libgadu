@@ -1,18 +1,19 @@
+%define prel rc1
 %define major 3
 %define libname %mklibname gadu %{major}
 %define develname %mklibname gadu -d
 
 Summary:	A Gadu-gadu protocol compatibile library
 Name:		libgadu
-Version:	1.8.2
-Release:	%mkrel 2
+Version:	1.9.0
+Release:	%mkrel -c %prel 1
 License:	LGPLv2+
 Group:		Networking/Instant messaging
 Url:		http://toxygen.net/libgadu
-Source0:	http://toxygen.net/libgadu/files/%{name}-%{version}.tar.bz2
+Source0:	http://toxygen.net/libgadu/files/%{name}-%{version}-%prel.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
-%description 
+%description
 The libgadu is intended to make it easy to add Gadu-Gadu communication
 support to your software.
 
@@ -37,7 +38,7 @@ Obsoletes:	%{mklibname gadu -s -d} < %{version}-%{release}
 Development files for libgadu library.
 
 %prep
-%setup -q
+%setup -qn %{name}-%{version}-%prel
 
 %build
 
