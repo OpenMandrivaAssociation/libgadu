@@ -1,4 +1,4 @@
-%define prel rc2
+%define prel rc3
 %define major 3
 %define libname %mklibname gadu %{major}
 %define develname %mklibname gadu -d
