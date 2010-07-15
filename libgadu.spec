@@ -1,4 +1,3 @@
-%define prel rc3
 %define major 3
 %define libname %mklibname gadu %{major}
 %define develname %mklibname gadu -d
@@ -6,11 +5,12 @@
 Summary:	A Gadu-gadu protocol compatibile library
 Name:		libgadu
 Version:	1.9.0
-Release:	%mkrel -c %prel 1
+Release:	%mkrel 1
 License:	LGPLv2+
 Group:		Networking/Instant messaging
 Url:		http://toxygen.net/libgadu
-Source0:	http://toxygen.net/libgadu/files/%{name}-%{version}-%prel.tar.bz2
+Source0:	http://toxygen.net/libgadu/files/%{name}-%{version}.tar.bz2
+Patch0:		libgadu-1.9.0-fix-mem-leak.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -38,7 +38,8 @@ Obsoletes:	%{mklibname gadu -s -d} < %{version}-%{release}
 Development files for libgadu library.
 
 %prep
-%setup -qn %{name}-%{version}-%prel
+%setup -q
+%patch0 -p1
 
 %build
 %configure2_5x \
