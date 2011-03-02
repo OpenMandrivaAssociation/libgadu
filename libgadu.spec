@@ -4,13 +4,14 @@
 
 Summary:	A Gadu-gadu protocol compatibile library
 Name:		libgadu
-Version:	1.9.1
+Version:	1.10.0
 Release:	%mkrel 1
 License:	LGPLv2+
 Group:		Networking/Instant messaging
 Url:		http://toxygen.net/libgadu
 Source0:	http://toxygen.net/libgadu/files/%{name}-%{version}.tar.bz2
-Patch0:		libgadu-1.9.0-fix-mem-leak.patch
+BuildRequires:	doxygen
+BuildRequires:	gnutls-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -39,7 +40,6 @@ Development files for libgadu library.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %configure2_5x \
@@ -47,6 +47,7 @@ Development files for libgadu library.
 	--with-pthread \
 	--without-bind \
 	--without-openssl \
+	--with-gnutls \
 	--with-c99-vsnprintf
 
 %make
