@@ -4,7 +4,7 @@
 
 Summary:	A Gadu-gadu protocol compatibile library
 Name:		libgadu
-Version:	1.10.1
+Version:	1.11.0
 Release:	%mkrel 1
 License:	LGPLv2+
 Group:		Networking/Instant messaging
