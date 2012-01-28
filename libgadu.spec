@@ -4,8 +4,8 @@
 
 Summary:	A Gadu-gadu protocol compatibile library
 Name:		libgadu
-Version:	1.11.0
-Release:	%mkrel 1
+Version:	1.11.1
+Release:	1
 License:	LGPLv2+
 Group:		Networking/Instant messaging
 Url:		http://toxygen.net/libgadu
@@ -53,29 +53,11 @@ Development files for libgadu library.
 %make
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
 %makeinstall_std
-
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/%{name}.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %{_includedir}/%{name}.h
 %{_libdir}/%{name}.so
-%{_libdir}/%{name}.la
 %{_libdir}/pkgconfig/%{name}.pc
