@@ -5,14 +5,13 @@
 Summary:	A Gadu-gadu protocol compatibile library
 Name:		libgadu
 Version:	1.11.1
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		Networking/Instant messaging
 Url:		http://toxygen.net/libgadu
 Source0:	http://toxygen.net/libgadu/files/%{name}-%{version}.tar.gz
 BuildRequires:	doxygen
-BuildRequires:	gnutls-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRequires:	gnutls-devel >= 3.0
 
 %description
 The libgadu is intended to make it easy to add Gadu-Gadu communication
