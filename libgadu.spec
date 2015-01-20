@@ -1,11 +1,11 @@
-%define major	3
-%define libname	%mklibname gadu %{major}
-%define devname	%mklibname gadu -d
+%define major 3
+%define libname %mklibname gadu %{major}
+%define devname %mklibname gadu -d
 
 Summary:	A Gadu-gadu protocol compatibile library
 Name:		libgadu
-Version:	1.11.2
-Release:	9
+Version:	1.12.1
+Release:	1
 License:	LGPLv2+
 Group:		Networking/Instant messaging
 Url:		http://toxygen.net/libgadu
@@ -38,7 +38,7 @@ Development files for libgadu library.
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static \
 	--with-pthread \
 	--without-bind \
