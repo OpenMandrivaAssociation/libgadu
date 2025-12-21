@@ -10,6 +10,11 @@ License:	LGPLv2+
 Group:		Networking/Instant messaging
 Url:		https://toxygen.net/libgadu
 Source0:	http://toxygen.net/libgadu/files/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	doxygen
 BuildRequires:	pkgconfig(gnutls)
 
